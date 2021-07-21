@@ -36,11 +36,14 @@ textarea{
   border-top: 1px solid white;;
 }
 
+span {
+  border-top: 1px dashed #000000;
+  padding-top: 15px;
+}
+
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
-  padding-top: 15px;
 }
 
 .past {
