@@ -1,6 +1,7 @@
 // Document Ready
 $(document).ready(function(){
     
+
     // Display current date
     var currentDateEl = moment().format("dddd MMMM D, YYYY");
     $('#currentDay').text(currentDateEl);
@@ -20,5 +21,6 @@ $(document).ready(function(){
         }
     });
 
-    
+
+
 });
