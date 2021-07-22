@@ -21,6 +21,17 @@ $(document).ready(function(){
         }
     });
 
+    // Save event input to local storage
+    var eventInputEl = document.querySelector(".event-input");
+    var saveBtnEl = document.querySelector(".saveBtn");
 
+    // Event listener
+    saveBtnEl.addEventListener('click', saveEvent);
 
+    eventInputEl.value = localStorage.getItem('event');
+
+    function saveEvent() {
+        localStorage.setItem('event', eventInputEl.value);
+    }
+    
 });
