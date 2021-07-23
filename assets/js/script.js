@@ -2,13 +2,13 @@
 $(document).ready(function(){
     
     // Display current date
-    var currentDateEl = moment().format("dddd MMMM D, YYYY");
+    let currentDateEl = moment().format("dddd MMMM D, YYYY");
     $('#currentDay').text(currentDateEl);
 
     // Time blocks change color based on hour of day
-    var hourEl = moment().get("hour");
+    let hourEl = moment().get("hour");
     $('.hour').each( function() {
-        var timeBlock = parseInt($(this).attr("value"));
+        let timeBlock = parseInt($(this).attr("value"));
         if (timeBlock < hourEl) {
             $(this).addClass("past");
         }
@@ -20,17 +20,18 @@ $(document).ready(function(){
         }
     });
 
-    // Save event input to local storage
-    var eventInputEl = document.querySelector(".event-input");
-    var saveBtnEl = document.querySelector(".saveBtn");
-
-    // Event listener
-    saveBtnEl.addEventListener('click', saveEvent);
-
-    eventInputEl.value = localStorage.getItem('event');
-
-    function saveEvent() {
-        localStorage.setItem('event', eventInputEl.value);
-    }
+    // Variable to declare all time blocks
+    let eventsEl = document.querySelectorAll('.event');
     
+    // forEach loop to save event input
+    eventsEl.forEach(function(event, i) {
+        const eventInput = event.querySelector('textarea');
+        const saveBtn = event.querySelector('button');
+        eventInput.value = localStorage.getItem('event-' + (i + 1))
+
+        // Event listener
+        saveBtn.addEventListener('click', function() {
+            localStorage.setItem('event-' + (i + 1), eventInput.value);
+        })
+    })
 });
